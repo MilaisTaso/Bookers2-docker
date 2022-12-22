@@ -1,0 +1,7 @@
+<td class="w-25">
+  <% if current_user.following?(user) %>
+    <%= link_to 'フォローを解除する', user_relationship_path(user.id), method: :delete %>
+  <% else %>
+    <%= link_to 'フォローする', user_relationship_path(user.id), method: :post %>
+  <% end %>
+</td>

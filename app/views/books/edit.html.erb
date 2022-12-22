@@ -1,0 +1,8 @@
+<% @form_title = 'Editing Book' %>
+<% @btn_text = 'Update Book' %>
+<div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    <%= render 'shared/errors', obj: @book %>
+  	<%= render 'shared/form', book: @book %>
+  	<%= link_to 'Show', @book, class: "book_#{@book.id}" %> |
+		<%= link_to 'Back', books_path, class: "back" %>
+  </div>

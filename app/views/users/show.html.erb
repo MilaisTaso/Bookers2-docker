@@ -1,0 +1,15 @@
+    <div class='col-md-3'>
+      <%= render 'shared/profile', user: @user %>
+      <%= render 'shared/form', book: @form %>
+    </div>
+    <div class="col-md-8 offset-md-1">
+        <%= render 'shared/table_head' %>
+          <% @books.each do |book| %>
+            <tr>
+              <%= render 'shared/table_body', book:book %>
+              <%= render 'book_comments/recode', book:book%>
+              <%= render 'favorites/btn', book:book %>
+              <%= render 'shared/btn', book:book %>
+            </tr>
+            <% end %>
+          <%= render 'shared/table_under' %>

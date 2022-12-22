@@ -1,0 +1,8 @@
+<td>
+  <%= link_to user_path(book.id)  do %>
+    <%= image_tag book.user.image_resize(50,50) %>
+    <br><span class="d-none"><%= book.user.name  %></span>
+  <% end %>
+</td>
+<td><%= link_to book.title, book_path(book.id) %></td>
+<td><%= book.body%></td>

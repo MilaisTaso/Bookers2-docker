@@ -1,0 +1,9 @@
+<table class="table w-75">
+  <tbody>
+      <% book.book_comments.each do |book_comment| %>
+      <tr>
+        <%= render 'book_comments/table_body', book_comment:book_comment %>
+      </tr>
+      <% end %>
+  </tbody>
+</table>

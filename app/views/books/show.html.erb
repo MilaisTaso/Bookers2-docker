@@ -1,0 +1,16 @@
+<div class="col-md-3">
+  <%= render 'shared/profile', user:@book.user %>
+  <%= render 'shared/form', book:Book.new %>
+</div>
+<div class="col-md-8 offset-md-1">
+  <%= render 'shared/table_head' %>
+    <tr>
+      <%= render 'shared/table_body', book:@book %>
+      <%= render 'book_comments/recode', book:@book%>
+      <%= render 'favorites/btn', book:@book %>
+      <%= render 'shared/btn', book:@book %>
+    </tr>
+  <%= render 'shared/table_under' %>
+  <%= render 'book_comments/table', book:@book %>
+  <%= render 'book_comments/form',book:@book, book_comment:@book_comment %>
+</div>

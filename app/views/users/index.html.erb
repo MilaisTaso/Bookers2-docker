@@ -1,0 +1,14 @@
+<div class='col-md-3'>
+    <%= render 'shared/profile', user: current_user %>
+    <%= render 'shared/form', book: @form %>
+</div>
+<div class='col-md-8 offset-md-1'>
+  <%= render 'shared/table_head' %>
+    <% @users.each do |user| %>
+      <tr>
+        <%= render 'shared/prof_table', user:user %>
+        <%= render 'relationships/table', user:user%>
+      </tr>
+    <% end %>
+    <%= render 'shared/table_under' %>
+</div>

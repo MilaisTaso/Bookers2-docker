@@ -1,0 +1,39 @@
+<div class="col-md-3">
+  <%= render 'shared/errors', obj:Book.new %>
+  <%= render 'shared/profile', user:current_user %>
+  <%= render 'shared/form', book:Book.new %>
+</div>
+<div class="col-md-8 offset-md-1">
+  <h2>Search Result</h2>
+  <% if @result.present? %>
+    <%= @result %>
+  <% end %>
+  <table class="table mt-1">
+    <tbody>
+      <% if @users.present? %>
+        <% @users.each do |user| %>
+          <tr>
+          <td>User</td>
+            <%= render 'shared/prof_table', user:user %>
+          </tr>
+        <% end %>
+      <% end %>
+      <% if @books.present? %>
+        <% @books.each do |book| %>
+          <tr>
+            <td>Book</td>
+            <%= render 'shared/table_body', book:book %>
+          </tr>
+        <% end %>
+      <% end %>
+      <% if @book_comments.present? %>
+        <% @book_comments.each do |book_comment| %>
+          <tr>
+            <td>Comment</td>
+            <%= render 'book_comments/table_body', book_comment:book_comment %>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
