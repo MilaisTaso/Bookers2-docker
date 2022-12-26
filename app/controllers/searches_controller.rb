@@ -11,7 +11,9 @@ class SearchesController < ApplicationController
       books.present? && @books = books
       users.present? && @users = users
       book_comments.present? && @book_comments = book_comments
-      (@book; @users; @book_comments).blank? && @result = '該当するデータはありません'
+      if books.blank? && users.blank? && book_comments.blank?
+        @result = '該当するデータはありません'
+      end
       render 'index'
     else
       flash[:notice] = 'キーワードを入力してください'

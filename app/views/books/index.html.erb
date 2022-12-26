@@ -9,7 +9,9 @@
     <tr>
       <%= render 'shared/table_body', book:book %>
       <%= render 'book_comments/recode', book:book%>
-      <%= render 'favorites/btn', book:book %>
+      <td id ="favorite_btn_<%= book.id %>">
+        <%= render 'favorites/btn', book:book %>
+      </td>
     </tr>
   <% end %>
   <%= render 'shared/table_under' %>
