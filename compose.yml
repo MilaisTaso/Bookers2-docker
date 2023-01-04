@@ -22,7 +22,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      DATABASE_PASSWORD: password
+      MARIADB_ROOT_PASSWORD: password
     # 依存関係の指定（dbが起動した後に、webが起動するようになる）
     depends_on:
       - db

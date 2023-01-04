@@ -9,26 +9,14 @@
 	  <th>introduction</th>
 	  <th><%= user.introduction %></th>
   </tr>
-  <tr>
-	  <th>フォロー数:</th>
-	  <th><%= link_to  user.following.count, following_user_path(user) %></th>
+  <tr id="follower_cnt">
+	  <%= render 'relationships/follower', user:user %>
   </tr>
-  <tr>
-	  <th>フォロワー数:</th>
-	  <th><%= link_to  user.followers.count, followers_user_path(user) %></th>
+  <tr id="followed_cnt">
+	  <%= render 'relationships/followed', user:user %>
   </tr>
 </table>
 
-<div class='row'>
-  <% if user == current_user %>
-    <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block" do %>
-      <i class="fas fa-user-cog"></i>
-    <% end %>
-  <% else %>
-    <% if current_user.following?(user) %>
-      <%= link_to 'フォローを解除する', user_relationship_path(user.id), method: :delete, class: "btn btn-outline-secondary btn-block" %>
-    <% else %>
-      <%= link_to 'フォローする', user_relationship_path(user.id), method: :post, class: "btn btn-outline-secondary btn-block" %>
-    <% end %>
-  <% end %>
+<div class='row' id="cong_btn">
+  <%= render 'shared/profile_btn', user: user %>
 </div>

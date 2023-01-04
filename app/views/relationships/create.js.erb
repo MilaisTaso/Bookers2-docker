@@ -1,0 +1,5 @@
+$("#cong_btn").html("<%= j(render 'shared/profile_btn', user: @user) %>");
+
+$("#follower_cnt").html("<%= j(render 'relationships/follower', user: @user) %>");
+
+$("#followed_cnt").html("<%= j(render 'relationships/followed', user: @user) %>");
