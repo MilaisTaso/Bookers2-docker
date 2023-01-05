@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_04_053457) do
+ActiveRecord::Schema.define(version: 2023_01_05_065700) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -63,13 +63,6 @@ ActiveRecord::Schema.define(version: 2023_01_04_053457) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "messages", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
-    t.integer "room_id"
-    t.text "chat"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "relationships", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followed_id"
@@ -81,11 +74,10 @@ ActiveRecord::Schema.define(version: 2023_01_04_053457) do
   end
 
   create_table "rooms", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "ohter_user_id"
+    t.integer "relationship_id", null: false
+    t.integer "other_relationship_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id", "ohter_user_id"], name: "index_rooms_on_user_id_and_ohter_user_id", unique: true
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|

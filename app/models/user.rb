@@ -43,10 +43,6 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
 
-  def mutual_followed?(user)
-    current_user.following.exists?(followed_id:user.id ) && user.relationship.exists?(followed_id:current_user.id)
-  end
-
   def self.user_find_recode(keyword)
     where(["name like? OR introduction like?", "%#{keyword}%", "%#{keyword}%"])
   end

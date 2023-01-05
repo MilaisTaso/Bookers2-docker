@@ -5,7 +5,8 @@
   <% else %>
     <% if current_user.following?(user) %>
       <%= link_to 'フォローを解除する', user_relationship_path(user.id), method: :delete, remote: true, class: "btn btn-outline-secondary btn-block" %>
-      <%# 相互フォローのみ使えるDM用のルームのリンク %>
+      <!-- 相互フォローのみ表示するDM用のリンク -->
+        <%#= link_to 'メッセージルーム', user_room_path(user),class:"btn btn-outline-secondary btn-block" %>
     <% else %>
       <%= link_to 'フォローする', user_relationship_path(user.id), method: :post, remote: true, class: "btn btn-outline-secondary btn-block" %>
     <% end %>
