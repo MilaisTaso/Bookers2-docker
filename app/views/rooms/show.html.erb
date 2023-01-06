@@ -1,1 +1,30 @@
-<h1>previes OK!</h1>
+<div class="col-md-3">
+  <%= render 'shared/errors', obj:@book %>
+  <%= render 'shared/profile', user:current_user %>
+  <%= render 'shared/form', book:@book %>
+</div>
+<div class="col-md-7 offset-md-1">
+  <h2 id="room" data-room="<%= @room.id %>" data-user="<%= current_user.id %>"><%= @user.name %> さんとのチャット</h1>
+
+  <div id="message" class="mt-4">
+    <% @chats.each do |chat| %>
+      <% if chat.user_id == current_user.id %>
+        <p class="h5 border rounded border-primary bg-primary p-1 w-50 text-light mt-3 ml-auto"><%= chat.message %></p>
+      <% else %>
+        <p class="h5 border rounded border-info bg-info p-1 w-50 text-light mt-3"><%= chat.message %></p>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="errors">
+    <%= render "shared/errors", obj: @chat %>
+  </div>
+  <div class="form-group mt-2">
+    <%= form_with model: @chat, url: rooms_path,  data: {remote: true} do |f| %>
+      <%= f.label :message %><br>
+      <%= f.text_field :message %>
+      <%= f.hidden_field :room_id %>
+      <%= f.submit '送信', class:"btn btn-success btn-sm"%>
+    <% end %>
+  </div>
+</div>

@@ -1,7 +1,5 @@
 class Room < ApplicationRecord
-  belongs_to :ralation, class_name: "Relationship"
-  belongs_to :other_relation, class_name: "Relationship"
+  has_many :user_rooms, dependent: :destroy
+  has_many :chats, dependent: :destroy
 
-  validates :relationship_id, presence: true
-  validates :other_relationship_id, presence: true
 end
