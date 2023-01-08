@@ -8,7 +8,11 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = Book.all
+    if params[:sort_score]
+      @books = Book.all.score_desc
+    else
+      @books = Book.all.order(id: "DESC")
+    end
     form_instance
     table_head_book
   end
@@ -25,9 +29,11 @@ class BooksController < ApplicationController
   end
 
   def edit
+    @book = Book.find(params[:id])
   end
 
   def update
+    @book = Book.find(params[:id])
     if @book.update(book_params)
       redirect_to book_path(@book), notice: "You have updated book successfully."
     else

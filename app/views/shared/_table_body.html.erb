@@ -8,14 +8,15 @@
 <td><%= book.body%></td>
 <td id="show_score<%= book.id%>"></td>
 <script>
-  var elem = document.querySelector('#show_score<%= book.id%>');
-  var opt = {
-    //星画像の指定などのオプションをここに記述
-    starOff:  '<%= asset_path('star-off.png') %>',
-    starOn : '<%= asset_path('star-on.png') %>',
-    readOnly: true,
-    half: false,
-    score: '<%= book.score%>',
-   };
-  raty(elem,opt);
-</script>
+  $(document).on('turbolinks:load', function(){
+    let elem<%= book.id%> = document.querySelector('#show_score<%= book.id%>');
+    let opt<%= book.id%> = {
+      readOnly: true,
+      starOff:  '<%= asset_path('star-off.png') %>',
+      starOn : '<%= asset_path('star-on.png') %>',
+      score: '<%= book.score%>',
+      half: false,
+    };
+    raty(elem<%= book.id%>,opt<%= book.id%>);
+  });
+  </script>

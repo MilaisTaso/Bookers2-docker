@@ -10,8 +10,9 @@ class ApplicationController < ActionController::Base
 
   def table_head_book
       @start_column = ''
-      @center_column = 'title'
-      @end_column = 'option'
+      @second_column = 'title'
+      @third_column = 'option'
+      @end_column = 'score'
   end
 
   def table_head_user

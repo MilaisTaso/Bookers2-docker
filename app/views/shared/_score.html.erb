@@ -1,0 +1,17 @@
+<div id="score_star" class="form-group">
+  <label for="score">score</label><br>
+</div>
+<script>
+  $(document).on('turbolinks:load', function(){
+    let elem = document.querySelector('#score_star');
+    let opt = {
+    //星画像の指定などのオプションをここに記述
+      readOnly: true,
+      starOff:  '<%= asset_path('star-off.png') %>',
+      starOn : '<%= asset_path('star-on.png') %>',
+      score: "<%= book.score %>",
+      half: false,
+      };
+      raty(elem,opt);
+    });
+</script>
