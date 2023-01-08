@@ -14,8 +14,8 @@
       readOnly: true,
       starOff:  '<%= asset_path('star-off.png') %>',
       starOn : '<%= asset_path('star-on.png') %>',
-      score: '<%= book.score%>',
-      half: false,
+      starHalf: "<%= asset_path('star-half.png') %>",
+      score: '<%= book.score%>'
     };
     raty(elem<%= book.id%>,opt<%= book.id%>);
   });

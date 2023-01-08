@@ -11,10 +11,11 @@
   </div>
 
   <% if book.id == nil %>
-    <div id="score_star" class="form-group">
-      <%= f.label :score %><br>
-      <%= f.hidden_field :score %>
+    <div id="star" class="form-group mb-0">
+      <%= f.label :score, class: "align-bottom mb-0" %><br>
+      <%= f.hidden_field :score, class: 'form-control', id: :review_star %>
     </div>
+    <div id="score_star" class="mt-0"></div>
     <script>
     $(document).on('turbolinks:load', function(){
       let elem = document.querySelector('#score_star');
@@ -22,8 +23,8 @@
         //星画像の指定などのオプションをここに記述
         starOff:  '<%= asset_path('star-off.png') %>',
         starOn : '<%= asset_path('star-on.png') %>',
-        scoreName: 'book[score]',
-        half: false,
+        starHalf: '<%= asset_path('star-half.png') %>',
+        scoreName: 'book[score]'
         };
       raty(elem,opt);
     });
@@ -31,7 +32,7 @@
   <% else %>
     <%= render "shared/score", book: book %>
   <% end %>
-  <div class="form-group">
+  <div class="form-group mt-2">
     <%= f.submit "#{@btn_text}", class: 'btn btn-success' %>
   </div>
 <% end %>

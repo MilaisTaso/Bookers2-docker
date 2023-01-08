@@ -51,7 +51,8 @@ ActiveRecord::Schema.define(version: 2022_12_20_080144) do
   create_table "books", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "title"
     t.text "body"
-    t.integer "score"
+    t.float "score"
+    t.string "category"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
