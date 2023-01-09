@@ -1,0 +1,10 @@
+ja:
+  enum:
+    book:
+      category:
+        novel: '小説'
+        picture: '絵本'
+        technical: '技術書'
+        business: 'ビジネス書'
+        magazine: '雑誌'
+        comic: '漫画'

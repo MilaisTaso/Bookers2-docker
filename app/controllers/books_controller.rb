@@ -8,8 +8,12 @@ class BooksController < ApplicationController
   end
 
   def index
-    if params[:sort_score]
-      @books = Book.all.score_desc
+    if params[:search].present?
+      if params[:search] == 'score'
+        @books = Book.all.score_desc
+      else
+        @books = Book.all.about_category(params[:search])
+      end
     else
       @books = Book.all.order(id: "DESC")
     end
@@ -49,7 +53,7 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :body, :score)
+    params.require(:book).permit(:title, :body, :category, :score)
   end
 
   def ensure_correct_user

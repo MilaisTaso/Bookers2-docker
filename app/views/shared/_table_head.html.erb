@@ -4,7 +4,7 @@
   <div class="align-self-end">
   <%= link_to '投稿の新しい順', books_path, 'data-turbolinks': false %>
   <span>|</span>
-  <%= link_to '評価の高い順', books_path(sort_score: "true"), 'data-turbolinks': false %>
+  <%= link_to '評価の高い順', books_path(search: 'score'), 'data-turbolinks': false %>
   </div>
   <% end %>
 </div>
