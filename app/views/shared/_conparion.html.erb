@@ -10,6 +10,21 @@
   <tbody>
     <td><%= @today_book.count %></td>
     <td><%= @yesterday_book.count %></td>
-    <td><%= @conparison %> %</td>
+    <td><%= @day_conparison %> %</td>
+  </tbody>
+</table>
+
+<table class="table table-hover table-inverse">
+  <thead>
+    <tr>
+      <th>今週の投稿数</th>
+      <th>先週の投稿数</th>
+      <th>前週比</th>
+    </tr>
+  </thead>
+  <tbody>
+    <td><%= @this_week_book.count %></td>
+    <td><%= @last_week_book.count %></td>
+    <td><%= @week_conparison%> %</td>
   </tbody>
 </table>
