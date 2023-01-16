@@ -9,7 +9,8 @@ class UsersController < ApplicationController
     @this_week_book = @books.created_this_week
     @last_week_book = @books.created_last_week
     @today_book = @books.created_today
-    @yesterday_book = @books.created_yesterday
+    @yesterday_book = @books.created_days_ago(1)
+    @week_books = @this_week_book.group('date(created_at)').count
     @day_conparison = @today_book.post_conparison(@yesterday_book)
     @week_conparison = @this_week_book.post_conparison(@last_week_book)
   end
@@ -64,5 +65,6 @@ class UsersController < ApplicationController
       redirect_to user_path(current_user)
     end
   end
+
 
 end

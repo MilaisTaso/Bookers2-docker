@@ -10,7 +10,7 @@
   <tbody>
     <td><%= @today_book.count %></td>
     <td><%= @yesterday_book.count %></td>
-    <td><%= @day_conparison %> %</td>
+    <td><%= number_to_percentage(@day_conparison) %></td>
   </tbody>
 </table>
 
@@ -25,6 +25,30 @@
   <tbody>
     <td><%= @this_week_book.count %></td>
     <td><%= @last_week_book.count %></td>
-    <td><%= @week_conparison%> %</td>
+    <td><%= number_to_percentage(@week_conparison)%></td>
+  </tbody>
+</table>
+
+<h2>過去7日間の投稿数</h2>
+<table class="table table-hover table-inverse">
+  <thead>
+    <tr>
+      <th>6日前</th>
+      <th>5日前</th>
+      <th>4日前</th>
+      <th>3日前</th>
+      <th>2日前</th>
+      <th>1日前</th>
+      <th>今日</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <% @week_books.each do |week_book| %>
+      <td>
+        <%= week_book[1] %>
+      </td>
+    <% end %>
+    </tr>
   </tbody>
 </table>
