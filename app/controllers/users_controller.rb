@@ -6,6 +6,9 @@ class UsersController < ApplicationController
     @books = @user.books
     form_instance
     table_head_book
+    @today_book = @books.created_today
+    @yesterday_book = @books.created_yesterday
+    @conparison = @today_book.post_conparison(@yesterday_book)
   end
 
   def index
