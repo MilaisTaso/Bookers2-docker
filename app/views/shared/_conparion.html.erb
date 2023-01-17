@@ -8,9 +8,9 @@
     </tr>
   </thead>
   <tbody>
-    <td><%= @today_book.count %></td>
-    <td><%= @yesterday_book.count %></td>
-    <td><%= number_to_percentage(@day_conparison) %></td>
+    <td><%= today_book.count %></td>
+    <td><%= yesterday_book.count %></td>
+    <td><%= number_to_percentage(day_conparison) %></td>
   </tbody>
 </table>
 
@@ -23,9 +23,9 @@
     </tr>
   </thead>
   <tbody>
-    <td><%= @this_week_book.count %></td>
-    <td><%= @last_week_book.count %></td>
-    <td><%= number_to_percentage(@week_conparison)%></td>
+    <td><%= this_week_book.count %></td>
+    <td><%= last_week_book.count %></td>
+    <td><%= number_to_percentage(week_conparison)%></td>
   </tbody>
 </table>
 
@@ -44,8 +44,9 @@
   </thead>
   <tbody>
     <tr>
-    <% @week_books.each do |week_book| %>
+    <% week_books.each_with_index do |week_book,i| %>
       <td>
+        <%= "#{i}: #{week_book[0]}" %>
         <%= week_book[1] %>
       </td>
     <% end %>

@@ -15,5 +15,6 @@
   </tr>
   <% end %>
   <%= render 'shared/table_under' %>
-  <%= render 'shared/conparion' %>
+  <%= render 'shared/conparion',today_book:@today_book,yesterday_book:@yesterday_book, day_conparison:@day_conparison, week_conparison:@week_conparison, week_books:@week_books,this_week_book:@this_week_book,last_week_book:@last_week_book %>
+  <%= render 'chart/chart' %>
 </div>

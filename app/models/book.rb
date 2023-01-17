@@ -22,7 +22,7 @@ class Book < ApplicationRecord
 
   def self.post_conparison(target)
     if target.count > 0
-      (self.count / target.count) * 100
+      (self.count.to_f / target.count) * 100
     else
       '###'
     end
